@@ -6,7 +6,6 @@ public class ChairWheelsSound : MonoBehaviour
 {
     private GameState state = null;
     private AudioSource wheelsAudio = null;
-    private bool currentlyPlayingSoung = false;
 
     // Start is called before the first frame update
     void Start()

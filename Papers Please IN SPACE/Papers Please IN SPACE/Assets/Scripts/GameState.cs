@@ -6,10 +6,18 @@ public class GameState : MonoBehaviour
 {
     public float xMovement, zMoveMent, mouseX, mouseY;
 
-    // Update is called once per frame
+    [SerializeField]
+    private float skyRotationSpeed = 1f;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     void Update()
     {
         GetInput();
+        RotateSky();
     }
 
     private void GetInput()
@@ -24,5 +32,10 @@ public class GameState : MonoBehaviour
     public bool PlayerIsTryingToMove()
     {
         return (xMovement != 0 || zMoveMent != 0);
+    }
+
+    private void RotateSky()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skyRotationSpeed);
     }
 }
